@@ -14,4 +14,4 @@ Sites:
 
 Note:
 
-Still in development, only scrobbles TV Shows
+Still in development, sites may not work all the time.
