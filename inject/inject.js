@@ -97,7 +97,7 @@ function scrobblePopup() {
 				</select>
 				<button id="ozsbtn">Select</button>
 			</section>
-			<h3 id="ozscancel" class="hide"><button>Cancel Scrobbling This Episode</button></h3>
+			<h3 id="ozscancel" class=""><button>Cancel Scrobbling This Episode</button></h3>
 		</div>
 	</div>`;
 	if (getService() == 'sbs') {
@@ -113,6 +113,7 @@ function scrobblePopup() {
 	});
 	qS = ozsouter.shadowRoot.querySelector.bind(ozsouter.shadowRoot);
 
+	qS('#ozscancel').addEventListener('click', removeFromPage);
 
 }
 
@@ -199,7 +200,7 @@ function titleEpisode(epMsg) {
 			console.log('episode matches', qS('#ozscancel'))
 			qS('#ozsmenu').classList.remove('wrongEpisode');
 			//give an option to not scrobble?
-			qS('#ozscancel').classList.remove('hide');
+			//qS('#ozscancel').classList.remove('hide');
 			qS('#ozscancel').addEventListener('click', cancelScrobble);
 		} else {
 			if (check['epTitle']) {
@@ -273,6 +274,9 @@ function pressedPause() {
 	} else {
 		console.log('pause', prog);
 		scrobbleEvent(prog, 'pause');
+		setTimeout(function(){
+			scrobbleEvent(prog, 'pause');
+		}, 14000);
 	}
 }
 function pressedPlay() {
@@ -369,11 +373,26 @@ function searchByNumbering(numbers, traktPos) {
 	});
 }
 
-
+function removeFromPage() {
+	console.log('removing from page');
+	var vid = document.querySelector('video')
+	vid.removeEventListener('timeupdate', throttledVideoProgress);
+	vid.removeEventListener('play', pressedPlay);
+	vid.removeEventListener('pause', pressedPlay);
+	document.querySelector('#ozsrel').parentNode.removeChild(document.querySelector('#ozsrel'));
+	setTimeout(function(){
+		vid.removeEventListener('timeupdate', throttledVideoProgress);
+	}, 17000);
+}
 function cancelScrobble() {
-	document.querySelector('video').removeEventListener('timeupdate', throttledVideoProgress);
+	console.log('cancelling scrobble');
+	var vid = document.querySelector('video')
+	vid.removeEventListener('timeupdate', throttledVideoProgress);
+	vid.removeEventListener('play', pressedPlay);
+	vid.removeEventListener('pause', pressedPlay);
 	scrobbleEvent(0, 'pause');
 	setTimeout(function(){
+		vid.removeEventListener('timeupdate', throttledVideoProgress);
 		scrobbleEvent(0, 'pause');
 	}, 17000);
 	document.querySelector('#ozsrel').parentNode.removeChild(document.querySelector('#ozsrel'));

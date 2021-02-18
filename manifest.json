@@ -34,7 +34,7 @@
 		},
 		{
 			"matches": ["*://iview.abc.net.au/show/*"],
-			"js": ["browser-polyfill.js", "content/abc_show.js"]
+			"js": ["browser-polyfill.js", "content/abc_show.js", "content/abc_episode.js", "inject/inject.js"]
 		},
 		{
 			"matches": ["*://iview.abc.net.au/video/*"],

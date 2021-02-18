@@ -14,7 +14,7 @@
 	/* bottom: 2em; */
 	background-color: white;
 	
-	
+	z-index: 999999;
 	
 }
 #ozsouter:hover {

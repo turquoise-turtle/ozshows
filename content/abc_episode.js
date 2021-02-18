@@ -8,10 +8,11 @@ console.log(document.title);
 
 //readyToGo()
 function readyToGo() {
-	if (document.querySelector('[data-component="VideoPlayer"]').firstChild.childNodes.length == 1) {
-		return false;
-	} else {
+	//if (document.querySelector('[data-component="VideoPlayer"]').firstChild.childNodes.length == 1) {
+	if (document.querySelector('[data-component="VideoPlayer"]').firstChild.querySelectorAll('div').length == 1) {
 		return true;
+	} else {
+		return false;
 	}
 }
 //testIfShow()
