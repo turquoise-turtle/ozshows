@@ -10,7 +10,7 @@ Sites:
 - 9now
 - 10play
 - SBS On Demand
-- ABC iView
+- ABC iview
 
 Note:
 
