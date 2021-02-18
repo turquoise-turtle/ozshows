@@ -1,0 +1,69 @@
+#ozsouter {
+	all: initial;
+	width: max-content;
+	max-width: 250px;
+	border: 1px solid black;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+	display: flex;
+	align-items: center;
+	
+	position: absolute;
+	top: 2em;
+	/* top: -85vh; */
+	/* bottom: 2em; */
+	background-color: white;
+	
+	
+	
+}
+#ozsouter:hover {
+	padding-right: 8px;
+}
+
+#ozsmenu {
+	display: none;
+	margin-bottom: 2em;
+	margin-top: 2em;
+
+}
+
+/* #ozsouter:hover > #ozsmenu { */
+:host(:hover) #ozsmenu, :host(:focus-within) #ozsmenu {
+	display: block;
+}
+
+#ozseptitle {
+	font-style: italic;
+}
+
+img {
+	min-width: 38px;
+}
+
+
+#ozserror {
+	display: none;
+}
+
+/* .wrongEpisode h3, */
+.wrongEpisode #ozserror {
+	color: red;
+	display: block;
+	font-weight: bold;
+}
+
+
+
+/* #ozsselectshows { */
+	/* display: none; */
+/* } */
+
+h3 {
+
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.hide {
+	display: none;
+}

@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<script type="application/javascript" src="../browser-polyfill.js"></script>
+
+<h4 id="ozshows">Oz Shows</h4>
+
+<section id="searchshow" class="hide">
+	<h4>Search show</h4>
+	<input id="showtosearch">
+	<button id="searchbtn">Search</button>
+	<button class="hide" id="lbBtn">LB</button>
+	<div id="searchdonut" class="donut hide"></div>
+	<h4 id="refine" class="hide">Please refine your search query</h4>
+</section>
+
+<h3 id="notfound" class="hide">Could Not Find A Show On The Current Page</h3>
+<section id="ep" style="display: none">
+	<h3><span id="loadingtext" class="hide">Loading ...</span><a id="showtitle" target="_blank"></a> <span id="epnum"></span><span id="eptitle"></span></h3>
+	<h4 class="action below">
+		<label for="watchcheck"><a id="watch" href="#">Watched?</a></label>
+		<input id="watchcheck" type="checkbox">
+		<div id="watchdonut" class="donut hide"></div>
+		<div id="watchtick" class="tick-mark hide"></div>
+	</h4>
+	<!-- <br> -->
+	<h4 class="action">
+		<label for="checkincheck"><a id="check" href="#">Check in</a></label>
+		<input id="checkincheck" type="checkbox">
+		<div id="checkindonut" class="donut hide"></div>
+		<div id="checkintick" class="tick-mark hide"></div>
+	</h4>
+	
+</section>
+
+<section id="selectshows" style="display: none">
+	<h3>Select the right show:</h3>
+	<select id="sel" name="show"></select>
+	<button id="btn">Select</button>
+</section>
+
+
+<section id="progress" style="display: none">
+	<h3 id="pr"></h3>
+</section>
+<button id="pbtn" style="display: none">Progress</button>
+
+<script src="popup.js"></script>

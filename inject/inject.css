@@ -1,0 +1,9 @@
+#ozsrel {
+	position: relative;
+	opacity: 0.1;
+	z-index: 999999;
+}
+#ozsrel:hover {
+	opacity: 1 !important;
+}
+

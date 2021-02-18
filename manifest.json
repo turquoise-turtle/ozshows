@@ -1,0 +1,80 @@
+{
+	"manifest_version": 2,
+	
+	"name": "Oz Shows",
+	"version": "0.7",
+	
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "ozshows@turquoise-turtle.github.io",
+			"strict_min_version": "65.0"
+		}
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["*://*.9now.com.au/*"],
+			"js": ["browser-polyfill.js", "content/nine.js", "inject/inject.js"],
+			"css": ["inject/inject.css"]
+		},
+		{
+			"matches": ["*://*.7plus.com.au/*"],
+			"js": ["browser-polyfill.js", "content/seven.js", "inject/inject.js"],
+			"css": ["inject/inject.css"]
+		},
+		{
+			"matches": ["*://10play.com.au/*"],
+			"js": ["browser-polyfill.js", "content/ten.js", "inject/inject.js"],
+			"css": ["inject/inject.css"]
+		},
+		{
+			"matches": ["*://*.sbs.com.au/ondemand/*"],
+			"js": ["browser-polyfill.js", "content/sbs.js", "inject/inject.js"],
+			"css": ["inject/inject.css"]
+		},
+		{
+			"matches": ["*://iview.abc.net.au/show/*"],
+			"js": ["browser-polyfill.js", "content/abc_show.js"]
+		},
+		{
+			"matches": ["*://iview.abc.net.au/video/*"],
+			"js": ["browser-polyfill.js", "content/abc_episode.js", "inject/inject.js"],
+			"css": ["inject/inject.css"]
+		},
+		{
+			"matches": ["*://trakt.tv/users/*/progress", "*://trakt.tv/users/*/progress?*", "*://trakt.tv/users/*/progress/*"],
+			"js": ["content/traktquicksearch.js"]
+		}
+	],
+
+	"web_accessible_resources": ["icons/icon38.png", "inject/inject.css", "inject/shadow.css"],
+	
+	"permissions": [
+		"https://*.trakt.tv/*",
+		"storage",
+		"identity",
+		"activeTab"
+	],
+	
+	"background": {
+		"scripts": [
+			"browser-polyfill.js",
+			"background.js"
+		]
+	},
+	
+	"icons": {
+		"16": "icons/icon16.png",
+		"38": "icons/icon38.png",
+		"64": "icons/icon64.png",
+		"128": "icons/icon128.png"
+	},
+	
+	"browser_action": {
+		"default_icon": "icons/icon64.png",
+		"default_title": "Oz Shows",
+		"default_popup": "popup/index.html"
+	},
+	
+	"description": "Check In/Mark Played Episodes on Aussie Streaming Services"
+}
