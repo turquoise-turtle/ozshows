@@ -463,7 +463,7 @@ function getnexteprewatch(slug, resetdate, seasons) {
 			return Promise.resolve(item);
 		})
 	} else {
-		return Promise.resolve();
+		return Promise.resolve(null);
 	}
 }
 
