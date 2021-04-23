@@ -344,7 +344,7 @@ function handleSearchResults(shows, years, tabNum) {//, initialSearch, tabNum) {
 		//initiate show
 		var slug = Object.keys(shows)[0];
 		var title = shows[slug];
-		
+
 		// var tabNum = sender['tab']['id'];
 		tabToContent[tabNum] = {
 			'showSlug': slug,
