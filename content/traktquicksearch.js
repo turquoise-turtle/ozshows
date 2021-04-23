@@ -82,3 +82,11 @@ const callback = function(mutationsList, observer) {
 
 // Later, you can stop observing
 // observer.disconnect();
+
+
+
+
+// var x = document.querySelectorAll('div.row[data-type="show"]');
+// var n = Math.floor(Math.random() * 50);
+// x[n].scrollIntoView();
+// x[n].style.backgroundColor = 'linen';

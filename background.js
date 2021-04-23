@@ -168,7 +168,8 @@ browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 				var pattern = '';
 			}
 			return searchShow(request.query, hasPattern, pattern)
-			.then(function(shows, years) {
+			.then(function([shows, years]) {
+				console.log(years);
 				return handleSearchResults(shows, years, tabNum);
 			}).catch(console.warn)
 			break;
@@ -271,7 +272,7 @@ function searchShow(showtitle, haspattern, urlpattern, score) {
 			item[slug] = title;
 			//slug: title
 			console.log(item);
-			return Promise.resolve(item);
+			return Promise.resolve([item]);
 		} else {
 			console.log(showtitle);
 			var url = 'https://api.trakt.tv/search/show?query=' + showtitle;
@@ -313,7 +314,8 @@ function searchShow(showtitle, haspattern, urlpattern, score) {
 				}
 
 				return savePatternSlug.then(function(){
-					return Promise.resolve(li, years);
+					console.log(years);
+					return Promise.resolve([li, years]);
 				});
 				//just testing
 				// var t = true;
@@ -335,6 +337,7 @@ function searchShow(showtitle, haspattern, urlpattern, score) {
 }
 
 function handleSearchResults(shows, years, tabNum) {//, initialSearch, tabNum) {
+	console.log(years);
 	console.log(shows);
 	var resultLength = Object.keys(shows).length;
 	if (resultLength == 1) {
@@ -381,15 +384,15 @@ function handleSearchResults(shows, years, tabNum) {//, initialSearch, tabNum) {
 	}
 }
 
-function doSearch(query, tabNum) {
-	//I sorta gave up on recursion using lower score bounds for searching shows
-	//this function shouldn't even be used at the moment
-	console.log(arguments);
-	return searchShow(query)
-	.then(function(shows) {
-		return handleSearchResults(shows, tabNum);
-	})
-}
+// function doSearch(query, tabNum) {
+// 	//I sorta gave up on recursion using lower score bounds for searching shows
+// 	//this function shouldn't even be used at the moment
+// 	console.log(arguments);
+// 	return searchShow(query)
+// 	.then(function(shows) {
+// 		return handleSearchResults(shows, tabNum);
+// 	})
+// }
 
 function getNextEp(tabId) {
 	console.log(tabId)
@@ -551,7 +554,7 @@ function searchEpisodeByNum(numbers, tabNum) {
 		return Promise.resolve();
 	});
 
-	return Promise.resolve();
+	//return Promise.resolve();
 }
 
 function sendEpisodeBack(tabNum) {

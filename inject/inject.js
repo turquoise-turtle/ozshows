@@ -128,7 +128,7 @@ function initScrobble() {
 		'type': 'searchShow',
 		'query': title,
 		'hasPattern': hasPattern
-	}
+	};
 	if (hasPattern) {
 		searchMsg['pattern'] = getUrlPattern();
 	}
@@ -141,14 +141,18 @@ function initScrobble() {
 				var list = msg.shows;
 				var years = msg.years;
 				var select = qS('#sel');
-				var box = qS('#ozsselectshows');
-				box.classList.remove('hide');
-				for (var slug in list) {
+				var listkeys = Object.keys(list);
+				for (var slug of listkeys) {
 					var opt = document.createElement('option');
 					opt.value = slug;
 					opt.innerText = list[slug] + ' ' + years[slug];
 					select.appendChild(opt);
+					console.log(select, opt);
 				}
+				var box = qS('#ozsselectshows');
+				box.classList.remove('hide');
+				console.log(list);
+				
 				var btn = qS('#ozsbtn');
 				btn.addEventListener('click', function() {
 					var slug = select.value;
